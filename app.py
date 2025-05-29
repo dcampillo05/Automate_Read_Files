@@ -3,7 +3,6 @@ import streamlit as st
 from jinja2 import Template
 from datetime import datetime, timedelta
 import io
-from ia import textAnalytic
 
 # Template do relatório
 TEMPLATE = """
@@ -106,11 +105,7 @@ if uploaded_files:
             st.text_area(f"📄 Relatório - {nome_arquivo}", value=texto, height=300)
             buffer.write(f"### {nome_arquivo} ###\n{texto}\n\n")
             
-            # Gera a resposta da IA
-            resultIA = textAnalytic(text)
-            st.markdown(f"🤖 **Análise da IA para {nome_arquivo}:**")
-            st.write(resultIA)
-            
+
             
 
         st.download_button(
